@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0a"><title>Studio Admin — Xe Wedding Studio</title><link rel="stylesheet" href="styles.css"></head>
+<body><main class="wrap">
+<header class="top"><a class="brand" href="./">XE <small>WEDDING STUDIO / CONTROL</small></a><div class="actions" style="margin:0"><a class="btn secondary" href="./">Public site</a><button id="logoutBtn" class="secondary hidden">Sign out</button></div></header>
+<section id="loginView" class="hero"><div class="eyebrow">Secure studio access</div><h1>Welcome<br>back.</h1><form id="loginForm" class="card stack" style="max-width:480px"><div><label>Email</label><input id="email" type="email" autocomplete="username" required></div><div><label>Password</label><input id="password" type="password" autocomplete="current-password" required></div><button>Sign in</button><p id="loginMsg" class="muted"></p></form></section>
+<section id="appView" class="hidden">
+<div class="section row"><div><div class="eyebrow">Control room</div><h1 style="font-size:44px">Your galleries.</h1><p id="welcome" class="muted"></p></div><span id="rolePill" class="pill"></span></div>
+<div id="ownerCreate" class="card hidden"><h2>Create a wedding gallery</h2><form id="createForm" class="field-grid">
+<div><label>Gallery / couple title</label><input name="title" placeholder="Akhila & Aishwarya" required></div>
+<div><label>Website name</label><input name="website_name" value="Xe Wedding Studio"></div>
+<div><label>Couple names</label><input name="couple_names" placeholder="Akhila & Aishwarya"></div>
+<div><label>Event date</label><input name="event_date" type="date"></div>
+<div><label>Access mode</label><select name="access_mode"><option value="private">Private (password)</option><option value="public">Public (no password)</option></select></div>
+<div><label>Visitor password (required for private)</label><input name="visitor_password" type="password" minlength="6"></div>
+<div class="wide"><label>Description</label><textarea name="description" rows="2"></textarea></div>
+<div class="wide"><label><input name="is_published" type="checkbox" style="width:auto"> Publish immediately</label></div>
+<div class="wide"><button>Create gallery</button><span id="createMsg" class="muted"></span></div>
+</form></div>
+<div class="card section"><h3>Account security</h3><form id="passwordForm" class="field-grid"><div><label>Current password</label><input name="currentPassword" type="password" required></div><div><label>New password (12+ characters)</label><input name="newPassword" type="password" minlength="12" required></div><div class="wide"><button>Change password</button><span id="passwordMsg" class="muted"></span></div></form></div>
+<div class="section"><div class="row"><h2>Managed galleries</h2><button id="refreshBtn" class="secondary">Refresh</button></div><div id="galleryList" class="grid"></div></div>
+<section id="manageView" class="hidden section">
+<div class="row"><div><div class="eyebrow">Gallery workspace</div><h2 id="manageTitle"></h2><p id="manageCode" class="muted"></p></div><button id="backBtn" class="secondary">Back to galleries</button></div>
+<div class="grid">
+<div class="card"><h3>Website settings</h3><form id="settingsForm" class="stack">
+<label>Website name</label><input name="website_name"><label>Gallery title</label><input name="title"><label>Couple names</label><input name="couple_names"><label>Description</label><textarea name="description" rows="3"></textarea><label>Event date</label><input name="event_date" type="date"><label>Access</label><select name="access_mode"><option value="private">Private</option><option value="public">Public</option></select><label>New visitor password (leave blank to keep current)</label><input name="visitor_password" type="password" minlength="6"><label>Cover image URL</label><input name="cover_url" type="url"><label>Theme</label><select name="theme"><option value="black-ivory">Black + Ivory Luxury</option></select><label><input name="is_published" type="checkbox" style="width:auto"> Published</label><button>Save settings</button><p id="settingsMsg" class="muted"></p></form></div>
+<div class="card"><h3>Client administrator</h3><p class="muted">Assign a client login. A new account receives a temporary password once.</p><form id="clientForm" class="stack"><label>Client email</label><input name="email" type="email" required><label>Display name</label><input name="display_name"><button>Add client admin</button><p id="clientMsg" class="muted"></p></form><div id="clientList" class="stack"></div></div>
+<div class="card"><h3>Create an album</h3><form id="albumForm" class="stack"><label>Album name</label><input name="title" placeholder="Wedding Ceremony" required><label>Description</label><input name="description"><button>Create album</button><p id="albumMsg" class="muted"></p></form><div id="albumList" class="stack"></div></div>
+<div class="card"><h3>Upload photos</h3><p class="muted">JPG, PNG, WebP or AVIF · up to 30 MB each · select up to 20 per batch.</p><label>Album</label><select id="uploadAlbum"><option value="">Unassigned / all photos</option></select><label>Choose images</label><input id="photoFiles" type="file" accept="image/jpeg,image/png,image/webp,image/avif" multiple><div class="actions"><button id="uploadBtn">Upload selected</button></div><p id="uploadMsg" class="muted"></p></div>
+</div>
+<div class="section"><div class="row"><h2>Gallery photos</h2><button id="visionBtn" class="secondary">Run XE Vision AI</button></div><label class="muted"><input id="visionFaceConsent" type="checkbox" style="width:auto"> I have documented consent for face grouping of people in this gallery (optional; requires an authorized model)</label><p id="visionMsg" class="muted"></p><div id="visionResults" class="stack"></div><div id="photoList" class="photos"></div></div>
+</section>
+</section>
+<div id="toast" class="notice hidden"></div><footer class="footer">Xe Wedding Studio · Owner and client workspaces are permission-separated.</footer>
+</main><script src="config.js"></script><script src="app.js"></script></body></html>
