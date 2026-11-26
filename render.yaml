@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: xe-wedding-studio-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_ORIGINS
+        sync: false
+      - key: OWNER_EMAIL
+        sync: false
+      - key: OWNER_PASSWORD
+        sync: false
+      - key: R2_ACCOUNT_ID
+        sync: false
+      - key: R2_ACCESS_KEY_ID
+        sync: false
+      - key: R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: R2_BUCKET
+        value: xe-wedding-studio
+      - key: R2_PUBLIC_BASE_URL
+        sync: false

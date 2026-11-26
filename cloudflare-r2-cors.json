@@ -1,0 +1,20 @@
+[
+  {
+    "AllowedOrigins": [
+      "https://xedevelopments.github.io",
+      "http://localhost:5500"
+    ],
+    "AllowedMethods": [
+      "GET",
+      "HEAD",
+      "PUT"
+    ],
+    "AllowedHeaders": [
+      "*"
+    ],
+    "ExposeHeaders": [
+      "ETag"
+    ],
+    "MaxAgeSeconds": 3600
+  }
+]
